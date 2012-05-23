@@ -1,0 +1,7 @@
+*.so
+*.o
+*.cmd
+*.bak
+*.mod
+*.out
+*.ko
