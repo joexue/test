@@ -1,0 +1,40 @@
+
+@ the files for pppd to start
+
+1
+   demand
+   persist
+   idle 300
+   maxfail 0
+   lock
+   /dev/ttyACM0
+   57600
+   noauth
+   defaultroute
+   user idm/g/1063
+   password Precidia1
+   connect '/usr/sbin/chat -t3 -f /etc/chatscripts/dialup.chat'
+   
+   2 
+   '' AT
+   TIMEOUT 12
+   OK ATD9w6132363813
+   TIMEOUT 60
+   CONNECT
+
+   3
+   config interface wan1
+        option proto 'ppp'
+        option device '/dev/ttyACM0'
+        option username 'idm/g/1063'
+        option password 'Precidia1'
+        option connect '/usr/sbin/chat -t3 -f /etc/chatscripts/dialup.chat'
+
+
+@ sed to get only one section from the ini file
+   
+   sed  -n "/\[ssh]/,/\[/p" precidia.cfg 
+
+@ a way to save a pipe when use the nc
+
+  nc -l 12345  < fifo_in | nc www.google.com 80 > fifo_in

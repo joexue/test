@@ -5,3 +5,5 @@
 *.mod
 *.out
 *.ko
+*.gz
+*.tar
