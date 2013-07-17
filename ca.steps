@@ -1,0 +1,36 @@
+1 generate the root self signed certificate
+	openssl req \
+ 	-x509 -nodes -days 3650 \
+  	-subj '/C=CA/ST=Ontario/L=Ottawa/CN=Precidia Technologies Inc./O=Precidia Technologies Inc./OU=Precidia Technologies Inc./' \
+  	-newkey rsa:2048 -keyout Precidia_ROOT_CA.key -out Precidia_ROOT_CA.pem
+ 	-nodes will not encrypt the private key
+ 	
+	to encrypt the key use
+  		openssl rsa -des3 -in Precidia_ROOT_CA.key  -out Precidia_ROOT_CA.skey
+
+2 generate the server key 
+	openssl genrsa  -out server.key 1024
+
+3 generate the server csr 
+	openssl req -new -key server.key -out server.csr
+
+4 sign the crt
+	openssl ca -in netvumanager.csr  -out netvumanager.crt -keyfile Precidia_ROOT_CA.key  -cert Precidia_ROOT_CA.pem 
+
+4.1 sign a multi host cert
+	openssl ca -in multitest.csr  -out multitest.crt -keyfile Precidia_ROOT_CA.skey  -cert Precidia_ROOT_CA.pem  -extensions v3_req -extfile openssl.cn
+
+5 generate the sig
+	openssl rsautl -sign -inkey private.pem -keyform PEM -in hash -passin pass[file]:password > signaturea
+
+6 verify the sig
+	openssl rsautl -verify -inkey public.pem -keyform PEM -pubin -in signature > verified
+
+7 abstract pub key from cert
+	openssl x509 -in signing-cert.pem -pubkey -noout
+
+8 generat a pubkey from private key
+	openssl rsa -in buildimage.skey -pubout > buildimage.pub
+
+9 use the config file
+	openssl -config openssl.cnf
