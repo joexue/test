@@ -144,3 +144,5 @@
     after restart in container, it will not start again, then run
     mount -o remount,rw /dev/pts 
 
+@ mail and give a sender address
+  echo "123" | mail -s "test for postfix" --append=FROM:jxue@precidia.com jxue@precidia.com
