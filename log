@@ -146,3 +146,5 @@
 
 @ mail and give a sender address
   echo "123" | mail -s "test for postfix" --append=FROM:jxue@precidia.com jxue@precidia.com
+
+@ getent to show the shadow info
