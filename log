@@ -148,3 +148,6 @@
   echo "123" | mail -s "test for postfix" --append=FROM:jxue@precidia.com jxue@precidia.com
 
 @ getent to show the shadow info
+
+@ linux kernel panic
+  Use the EABI to compile kernel to compatible with the file system
