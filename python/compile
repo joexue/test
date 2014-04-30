@@ -1,0 +1,5 @@
+import sys
+import py_compile
+
+if __name__ == "__main__":
+	py_compile.compile(sys.argv[1], sys.argv[2])
