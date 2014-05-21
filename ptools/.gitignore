@@ -1,0 +1,7 @@
+builddir
+*.pyc
+__pycache__
+ptools
+*.bak
+compile
+*.swp
