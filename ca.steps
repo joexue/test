@@ -34,3 +34,6 @@
 
 9 use the config file
 	openssl -config openssl.cnf
+
+10 show the certificate
+    openssl x509 -in /tmp/test.pem  -text
