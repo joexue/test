@@ -37,3 +37,5 @@
 
 10 show the certificate
     openssl x509 -in /tmp/test.pem  -text
+11 show the key
+    openssl rsa -in /tmp/key.pem  -text
