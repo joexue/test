@@ -154,6 +154,7 @@
 
 @ openssh proxy
    -L local, forward packet from client to server to any
+   the localhost always the destination, for -L the localhost is the server and for -R the localhost is client
    -R remote, forward packet from server side to client to any
    -L 0.0.0.0:2000:host:3000 user@sshhost local 2000 port to host:3000 througout sshhost
    -R 0.0.0.0:9000:localhost:3000 user@sshhost  sshhost 9000 to localhost 3000
