@@ -159,3 +159,5 @@
    -L 0.0.0.0:2000:host:3000 user@sshhost local 2000 port to host:3000 througout sshhost
    -R 0.0.0.0:9000:localhost:3000 user@sshhost  sshhost 9000 to localhost 3000
    -o GatewayPorts=yes needed for remote  or you can login to remote (the outside login to remote server) and locally connect it
+
+@ ldapsearch -x -b  "dc=wannlynx,dc=com" -H ldap://ldap.wannlynx.com/
