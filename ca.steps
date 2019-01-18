@@ -40,7 +40,7 @@
 11 show the key
     openssl rsa -in /tmp/key.pem  -text
 
-12 show the req
+12 show the req (csr)
     openssl req -text -in /tmp/req.pem
 
 13 the cert used to sign other cert need to have CA:true properity
