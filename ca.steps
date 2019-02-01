@@ -44,3 +44,10 @@
     openssl req -text -in /tmp/req.pem
 
 13 the cert used to sign other cert need to have CA:true properity
+
+14 use "-extensions SAN" for both csr generating/sign can have subject alternate name, the [SAN] section need to be provided by confif file or in parameter
+    [SAN]
+    subjectAltName=DNS:*.test.com
+    or
+    -config <(cat /etc/pki/tls/openssl.cnf \
+        <(printf "[SAN]\nsubjectAltName=DNS:*.bdstatic.com,DNS:*.baidu.com")) \
